@@ -1,20 +1,13 @@
 <html>
   <head>
-	<title>Dig.run</title>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.10.1/js/jquery.terminal.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.10.1/css/jquery.terminal.min.css" rel="stylesheet"/>
+	<title>dig-web</title>
+	<script src="st/all.js"></script>
+	<link href="st/all.css" rel="stylesheet"/>
   </head>
   <body >
-        <a href="https://github.com/avasylev/dig-net">
-            <img 
-                style="position: absolute; top: 0; right: 0; border: 0;" 
-                src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" 
-                alt="Fork me on GitHub" />
-        </a>
         <a id="cmdLink" style="position: absolute; top: 10; right: 170; border: 0;"
             href="http://localhost:5000/" >
-            Link to the last command
+            last command
         </a>
 
       
@@ -33,17 +26,31 @@ oooooooooo.   ooooo   .oooooo.
  888     d88   888   88.    .88  
 o888bood8P    o888o   Y8bood8P   
 ---------------------------------------
-simple web interface for "dig" DNS tool 
+web interface for the "dig" DNS tool
+write "-h" for detailed options 
 ---------------------------------------
 {{ initialQuery }}        
         `, 
-        //height: "100%",
-	    prompt: '> dig ',
+        height: "100%",
+        width: "100%",
+            prompt: '> dig ',
         onBlur: function() {
-            return false;
+            //return false;
         }
     });
 });
+
+function onSomethingOtherThanLoad(event){
+    // get the input
+    //var target = document.getElementsByTagName("input")[0];
+    var target = $('.cmd-editable');
+    if (event.target != target) {
+        target.focus();
+        target.click();
+    }
+};
+
+
 	</script>
   </body>
 </html>

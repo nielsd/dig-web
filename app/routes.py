@@ -1,8 +1,9 @@
 from flask import render_template
 from flask import Response
 from flask import request
-from digWrapper import RunDig
+from app.digWrapper import RunDig
 from app import app
+
 
 @app.route('/')
 @app.route('/index')
@@ -16,7 +17,61 @@ def index():
     return render_template('index.html', initialQuery=queryOutput)
 
 
+
 @app.route('/q', methods=['GET', 'POST'])
 def query():
-    output = RunDig(request.values["command"])
+    #output = request.values["command"]
+    input = request.values["command"]
+    if input:
+        output_lines    = RunDig(input)
+        output          = []
+        for my_line in output_lines:
+           output.append(my_line.decode())
+    else:
+        output          = " "
     return Response("".join(output), mimetype="text/plain")
+
+
+@app.route('/dig', methods=['GET', 'POST'])
+def query_dig_page():
+    input               = request.values["query"]
+    if input:
+        output_lines    = RunDig(input)
+        output          = []
+        for my_line in output_lines:
+           output.append(my_line.decode())
+    else:
+        output          = " "
+    return render_template('index.html', initialQuery=output)
+
+
+@app.route('/delv', methods=['GET', 'POST'])
+def query_delv_page():
+    input               = request.values["query"]
+    if input:
+        output_lines    = RunDig("delv " + input)
+        output          = []
+        for my_line in output_lines:
+           output.append(my_line.decode())
+    else:
+        output          = " "
+    return render_template('index.html', initialQuery=output)
+
+
+@app.route('/whois', methods=['GET', 'POST'])
+def query_whois_page():
+    input               = request.values["query"]
+    if input:
+        output_lines    = RunDig("whois " + input)
+        output          = []
+        for my_line in output_lines:
+           output.append(my_line.decode())
+    else:
+        output          = " "
+    return render_template('index.html', initialQuery=output)
+
+
+@app.route('/st/<path:path>')
+def static_file(path):
+    return app.send_static_file(path)
+
