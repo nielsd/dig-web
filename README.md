@@ -1,2 +1,3 @@
 # dig-web
-dig web terminal
+dig web console - simple but powerful
+(a fork of avasylev/dig-net - thx to avasylev)
