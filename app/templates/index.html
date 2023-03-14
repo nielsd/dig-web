@@ -1,0 +1,55 @@
+<html>
+  <head>
+	<title>dig-web</title>
+	<script src="st/all.js"></script>
+	<link href="st/all.css" rel="stylesheet"/>
+  </head>
+  <body >
+        <a id="cmdLink" style="position: absolute; top: 10; right: 170; border: 0;"
+            href="http://localhost:5000/" >
+            last command
+        </a>
+
+      
+	<script type="text/javascript">
+$(function() {
+    $('body').terminal(function(command, term) {
+        $('#cmdLink').attr('href', 'http://localhost:5000/?q=' + encodeURIComponent(command));
+        return $.post('/q', {command: command});
+    }, {
+        greetings: `---------------------------------------
+oooooooooo.   ooooo   .oooooo.    
+ 888     Y8b   888   d8P    Y8b   
+ 888      888  888  888           
+ 888      888  888  888           
+ 888      888  888  888     ooooo 
+ 888     d88   888   88.    .88  
+o888bood8P    o888o   Y8bood8P   
+---------------------------------------
+simple web interface for "dig" DNS tool 
+---------------------------------------
+{{ initialQuery }}        
+        `, 
+        height: "100%",
+        width: "100%",
+            prompt: '> dig ',
+        onBlur: function() {
+            //return false;
+        }
+    });
+});
+
+function onSomethingOtherThanLoad(event){
+    // get the input
+    //var target = document.getElementsByTagName("input")[0];
+    var target = $('.cmd-editable');
+    if (event.target != target) {
+        target.focus();
+        target.click();
+    }
+};
+
+
+	</script>
+  </body>
+</html>

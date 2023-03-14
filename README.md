@@ -4,3 +4,5 @@ dig web console - simple but powerful
 
 dig-web is coded in Python3 as Flask project. 
 All elements are bundled with the code.
+
+
