@@ -1,6 +1,5 @@
 # dig-web
-dig web console - simple but powerful web console for the BIND’s Domain Information Groper (dig) Tool 
-- the powerful lookup tool for the DNS.
+dig web console - simple but powerful web console for the BIND’s Domain Information Groper (dig) Tool - the powerful lookup tool for the DNS.
 
 
 (dig-web is a fork of avasylev/dig-net - thx to avasylev)
