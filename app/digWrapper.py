@@ -3,7 +3,7 @@ import subprocess
 import re
 import codecs
 
-ESCAPE_SEQUENCE_RE = re.compile(r'''
+ESCAPE_SEQUENCE_RE      = re.compile(r'''
     ( \\U........      # 8-digit hex escapes
     | \\u....          # 4-digit hex escapes
     | \\x..            # 2-digit hex escapes
@@ -22,9 +22,23 @@ def decode_escapes(s):
 
 
 def RunDig(paramString):
-    popenParams = ["dig"]
-    paramString_clean = re.sub(r'[\?|\;|\#|\'|\"]',r'',decode_escapes(paramString))
-    popenParams += paramString_clean.split(" ")
+    #popenParams = ["dig"]
+    popenParams         = []
+    dig_cmd             = ["dig"]
+    delv_cmd            = ["delv"]
+    paramString_clean   = re.sub(r'[\?|\;|\#|\'|\"]',r'',decode_escapes(paramString))
+    paramList           = paramString_clean.split(" ")
+
+    # handle different input versions
+    # handle "delv mode"
+    if "delv" in paramList[0]:
+       paramList.pop(0)
+       popenParams      = delv_cmd + paramList
+    elif "dig" in paramList[0]:
+       paramList.pop(0)
+       popenParams      = dig_cmd + paramList
+    else:
+       popenParams      = dig_cmd + paramList
 
     p = subprocess.Popen(popenParams, shell=False, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     return p.stdout.readlines()

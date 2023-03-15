@@ -1,8 +1,8 @@
 <html>
   <head>
-	<title>dig-web</title>
-	<script src="st/all.js"></script>
-	<link href="st/all.css" rel="stylesheet"/>
+        <title>dig-web</title>
+        <script src="st/all.js"></script>
+        <link href="st/all.css" rel="stylesheet"/>
   </head>
   <body >
         <a id="cmdLink" style="position: absolute; top: 10; right: 170; border: 0;"
@@ -10,27 +10,33 @@
             last command
         </a>
 
-      
-	<script type="text/javascript">
+
+        <script type="text/javascript">
 $(function() {
     $('body').terminal(function(command, term) {
         $('#cmdLink').attr('href', 'http://localhost:5000/?q=' + encodeURIComponent(command));
         return $.post('/q', {command: command});
     }, {
         greetings: `---------------------------------------
-oooooooooo.   ooooo   .oooooo.    
- 888     Y8b   888   d8P    Y8b   
- 888      888  888  888           
- 888      888  888  888           
- 888      888  888  888     ooooo 
- 888     d88   888   88.    .88  
-o888bood8P    o888o   Y8bood8P   
+
+      dP oo
+      88
+ d888b88 dP .d8888b.
+88    88 88 88    88
+88.  .88 88 88.  .88
+ 88888P8 dP  8888P88
+                 .88
+             d8888P
+
 ---------------------------------------
 web interface for the "dig" DNS tool
-write "-h" for detailed options 
+ - write "-h" for detailed options
+ - write "delv ..." to call delv DNSSEC
+   validator instead
+ - write "delv -h" for delv help
 ---------------------------------------
-{{ initialQuery }}        
-        `, 
+{{ initialQuery }}
+        `,
         height: "100%",
         width: "100%",
             prompt: '> dig ',
@@ -51,6 +57,6 @@ function onSomethingOtherThanLoad(event){
 };
 
 
-	</script>
+        </script>
   </body>
 </html>
