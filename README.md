@@ -25,6 +25,7 @@ or for "whois mode"
 # screenshot
 ```
 ---------------------------------------
+
       dP oo          
       88             
  d888b88 dP .d8888b. 
@@ -32,7 +33,9 @@ or for "whois mode"
 88.  .88 88 88.  .88 
  88888P8 dP  8888P88 
                  .88 
-             d8888P  
+             d8888P
+
+by Niels Dettenbach <nd@syndicat.com>
 ---------------------------------------
 web interface for the "dig" DNS tool
  - write "-h" for detailed dig options 
