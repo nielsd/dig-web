@@ -6,6 +6,7 @@ After=network.target
 [Service]
 User=www-data
 WorkingDirectory=/var/www/dig-web
+# uid/gid 33 is the actual user id of www / www-data or similiar
 ExecStart=/var/www/dig-web/venv/bin/uwsgi -s /tmp/dig-web.sock --uid 33 --gid 33 --manage-script-name --mount /dig_web=app:app
 Restart=always
 
