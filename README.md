@@ -68,8 +68,6 @@ egov.eu.        86400   IN  A   62.146.88.146
 ;; MSG SIZE  rcvd: 80
 ```
 ## installation
-We recommend to run your own local instance of BIND with the provided configuration (named.conf) to avoid unwanted caching effects or potential manipulations on your resolution path.
-
 Copy the full source tree - then run the installer to establish the flask web application including its own micro webserver.
 ```
 cd /var/www/dig-web/
@@ -93,6 +91,14 @@ server {
 ```
 but you should add SSL for proper work with any browser.
 
+### run your own BIND
+We recommend to run your own local instance of BIND with the provided configuration (named.conf) to avoid unwanted caching effects or potential manipulations on your resolution path. 
+
+use /etc/resolv.conf
+```
+nameserver 127.0.0.1
+nameserver ::1
+```
 
 ## changes
 - 1.2
@@ -107,6 +113,9 @@ but you should add SSL for proper work with any browser.
  * added support for "dig" in input line
 
 - v0.8
+
+## contributions
+contributions are welcome.
  * localize external references (JSS, CSS etc.)
  * additional Shell Escape Filtering
  * bug fixes 
