@@ -1,0 +1,13 @@
+# example systemd config to run as a WSGI
+[Unit]
+Description=dig-web
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/dig-web
+ExecStart=/var/www/dig-web/venv/bin/uwsgi -s /tmp/dig-web.sock --uid 33 --gid 33 --manage-script-name --mount /dig_web=app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
