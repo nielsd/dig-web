@@ -70,6 +70,15 @@ egov.eu.        86400   IN  A   62.146.88.146
 ## installation
 We recommend to run your own local instance of BIND with the provided configuration (named.conf) to avoid unwanted caching effects or potential manipulations on your resolution path.
 
+Copy the full source tree - then run the installer to establish the flask web application including its own micro webserver.
+```
+cd /var/www/dig-web/
+chmod 755 install.sh
+./install.sh
+```
+running as WSGI per systemd:
+
+
 
 ## changes
 - 1.2
