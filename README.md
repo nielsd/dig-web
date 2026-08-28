@@ -7,8 +7,10 @@ beside dig, it offers the delv DNSSEC analyzer / validator too.
 dig-web is coded in Python3 as Flask project. 
 For user security reasons, all elements are bundled with the code.
 
+## demo
+check out out demo at https://dig.sysip.de
 
-# usage
+## usage
 
 for (default) dig mode
 
@@ -22,7 +24,7 @@ or for "whois mode"
 
 `dig whois <more options> egov.eu`
 
-# screenshot
+## screenshot
 ```
 ---------------------------------------
 
@@ -65,8 +67,15 @@ egov.eu.        86400   IN  A   62.146.88.146
 ;; WHEN: Tue Mar 21 10:26:07 CET 2023
 ;; MSG SIZE  rcvd: 80
 ```
+## installation
+We recommend to run your own local instance of BIND with the provided configuration (named.conf) to avoid unwanted caching effects or potential manipulations on your resolution path.
 
-# changes
+
+## changes
+- 1.2
+ * added a optimized recursively resolving BIND config
+ * added demo in README
+
 - 1.1
  * added whois support
  
