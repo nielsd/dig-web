@@ -76,8 +76,22 @@ cd /var/www/dig-web/
 chmod 755 install.sh
 ./install.sh
 ```
-running as WSGI per systemd:
+### as WSGI behind NGINX
+To run dig-web as WSGI per systemd, use / load the provided systemd file into your systemd.
 
+On your nginx, a minimum config looks like:
+```
+server {
+        server_name dig.sysip.de;
+        root /var/www/dig-web;
+        location / { try_files $uri @dig_web; }
+        location @dig_web {
+                include uwsgi_params;
+                uwsgi_pass unix:/tmp/dig-web.sock;
+        }
+}
+```
+but you should add SSL for proper work with any browser.
 
 
 ## changes
