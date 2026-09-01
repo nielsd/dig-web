@@ -2,7 +2,7 @@
 dig web console - simple but powerful web console for the BIND’s Domain Information Groper (dig) Tool - the powerful lookup tool for the DNS.
 beside dig, it offers the delv DNSSEC analyzer / validator too.
 
-(dig-web is a fork of avasylev/dig-net - thx to avasylev)
+(dig-web bases on a fork of avasylev/dig-net - thx to avasylev)
 
 dig-web is coded in Python3 as Flask project. 
 For user security reasons, all elements are bundled with the code.
