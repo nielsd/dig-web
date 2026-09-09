@@ -11,6 +11,8 @@ For user security reasons, all elements are bundled with the code.
 ## demo
 check out out demo at https://dig.sysip.de
 
+thx to <a href="https://www.syndicat.com">syndicat</a> for hosting
+
 ## usage
 
 for (default) dig mode
