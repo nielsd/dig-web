@@ -11,7 +11,7 @@ For user security reasons, all elements are bundled with the code.
 ## demo
 check out out demo at https://dig.sysip.de
 
-thx to <a href="https://www.syndicat.com">syndicat</a> for hosting
+thx to <a href="https://www.syndicat.com">SYNDICAT IT & Internet</a> for <a href="https://www.syndicat.com">hosting</a>
 
 ## usage
 
@@ -38,8 +38,7 @@ or for "whois mode"
 88.  .88 88 88.  .88 
  88888P8 dP  8888P88 
                  .88 
-             d8888P
-
+             d8888P  
 by Niels Dettenbach <nd@syndicat.com>
 ---------------------------------------
 web interface for the "dig" DNS tool
@@ -52,23 +51,30 @@ web interface for the "dig" DNS tool
         
         
 > dig egov.eu
-  
-; <<>> DiG 9.16.33 <<>> egov.eu
+; <<>> DiG 9.18.49-1~deb12u1-Debian <<>> egov.eu
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35632
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 57070
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 4, ADDITIONAL: 1
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 84106d296c843288010000006419782f513a2fa227bc4841 (good)
+; COOKIE: 8a487c43c76dd93c010000006afda83974bf046ceebaf25a (good)
 ;; QUESTION SECTION:
 ;egov.eu.           IN  A
 ;; ANSWER SECTION:
-egov.eu.        86400   IN  A   62.146.88.146
-;; Query time: 0 msec
-;; SERVER: 84.200.14.11#53(84.200.14.11)
-;; WHEN: Tue Mar 21 10:26:07 CET 2023
-;; MSG SIZE  rcvd: 80
+egov.eu.        0   IN  A   62.146.88.146
+;; AUTHORITY SECTION:
+egov.eu.        0   IN  NS  ns4.syndicat.co.za.
+egov.eu.        0   IN  NS  ns1.syndicat.com.
+egov.eu.        0   IN  NS  ns2.syndicat.com.
+egov.eu.        0   IN  NS  ns3.syndicat.com.
+;; Query time: 6 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Wed Nov 18 14:29:29 CET 2026
+;; MSG SIZE  rcvd: 178
+> dig 
+
+
 ```
 ## installation
 Copy the full source tree - then run the installer to establish the flask web application including its own micro webserver.
