@@ -1,0 +1,17 @@
+services:
+  dig-web:
+    build: .
+    image: dig-web:latest
+    container_name: dig-web
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    # Wichtig: Port 53 NICHT nach außen mappen!
+    # volumes:   # nur wenn du die Config live ändern willst
+    #   - ./named.conf:/etc/bind/named.conf:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
