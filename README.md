@@ -38,7 +38,7 @@ or for "whois mode"
 88.  .88 88 88.  .88 
  88888P8 dP  8888P88 
                  .88 
-             d8888P  
+             d8888P -WEB 
 by Niels Dettenbach <nd@syndicat.com>
 ---------------------------------------
 web interface for the "dig" DNS tool
